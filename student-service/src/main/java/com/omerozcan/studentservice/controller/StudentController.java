@@ -30,5 +30,8 @@ public class StudentController {
         return studentRepository.findAll();
     }
 
-
+    @GetMapping("/lesson/{lessonId}")
+    public List<Student> findByLessonId(@PathVariable("lessonId") Long lessonId ){
+        return studentRepository.findByLessonId(lessonId);
+    }
 }

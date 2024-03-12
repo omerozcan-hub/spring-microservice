@@ -24,4 +24,8 @@ public class StudentRepository{
         return studentList;
     }
 
+    public List<Student> findByLessonId(Long id){
+        return studentList.stream().filter(c -> c.lessonId().equals(id)).toList();
+    }
+
 }

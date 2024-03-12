@@ -1,5 +1,5 @@
 package com.omerozcan.studentservice.model;
 
-public record Student(Long id, String name,Long lessonID) {
+public record Student(Long id, String name,Long lessonId) {
 }
 

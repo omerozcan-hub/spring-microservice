@@ -1,5 +1,6 @@
 package com.omerozcan.lessonservice.controller;
 
+import com.omerozcan.lessonservice.client.StudentClient;
 import com.omerozcan.lessonservice.model.Lesson;
 import com.omerozcan.lessonservice.repository.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class LessonController {
     @Autowired
     private LessonRepository lessonRepository;
 
+    @Autowired
+    private StudentClient studentClient;
 
     @PostMapping
     public Lesson add(@RequestBody Lesson lesson){
@@ -30,5 +33,13 @@ public class LessonController {
         return lessonRepository.findAll();
     }
 
+    @GetMapping("/with-students")
+    public List<Lesson> findAllWithStudents(){
+        List<Lesson> lessonList = lessonRepository.findAll();
+
+        lessonList.forEach(c -> c.setStudentList(studentClient.findByLessonId(c.getId())));
+
+        return lessonList;
+    }
 
 }
