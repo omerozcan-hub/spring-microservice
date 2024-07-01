@@ -1,4 +1,4 @@
-# Spring 3 Microservices Project
+# Spring Microservices Project
 ### Project Overview
 
 This project employs a microservices architecture using Spring Boot and Spring Cloud, featuring essential components like Config Server, API Gateway, and Service Registry. It includes specialized services such as Lesson Service, 
